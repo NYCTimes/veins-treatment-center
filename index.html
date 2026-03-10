@@ -1,0 +1,332 @@
+<style>
+
+/* --- Elite Medical Design System --- */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+
+:root {
+    --brand-primary: #0f172a; /* Footer Navy */
+    --brand-link: #3b82f6;    /* Unified Link Blue */
+    --brand-accent: #0ea5e9;
+    --brand-success: #10b981;
+    --white: #ffffff;
+    --bg-soft: #f8fafc;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+/* Fix for blank space under footer */
+html { scroll-behavior: smooth; background-color: var(--brand-primary); } 
+body { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--brand-primary); line-height: 1.6; background: var(--white); overflow-x: hidden; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+/* Unified Link Styling */
+.text-link, .keyword-link {
+    color: var(--brand-link) !important;
+    text-decoration: none !important;
+    font-weight: inherit !important;
+}
+.text-link:hover, .keyword-link:hover { text-decoration: underline !important; }
+
+/* --- Navigation --- */
+.top-nav {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+    padding: 20px 0;
+    position: sticky; top: 0; z-index: 1000;
+}
+.nav-flex { display: flex; justify-content: space-between; align-items: center; }
+.brand-identity { font-weight: 800; font-size: 1.4rem; color: var(--brand-primary); text-decoration: none; }
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links a { text-decoration: none; color: var(--brand-primary); font-weight: 600; font-size: 0.95rem; }
+.phone-cta { background: var(--brand-primary); color: white !important; padding: 12px 24px; border-radius: 12px; display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 600; }
+.menu-toggle { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--brand-primary); }
+
+/* --- Banner / Hero --- */
+.hero { display: flex; align-items: center; background: #fff; border-bottom: 1px solid #f1f5f9; }
+.hero-content { flex: 1; padding: 80px 5%; }
+.hero-content h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 800; margin-bottom: 24px; line-height: 1.1; }
+.hero-content p { font-size: 1.1rem; color: #475569; }
+.hero-image { 
+    flex: 1; min-height: 550px; 
+    background: url('Expert Vascular Doctors & Vein Clinic in NYC.webp') center/cover no-repeat; 
+}
+
+/* --- Sections --- */
+.section-padding { padding: 100px 0; }
+
+/* --- Feature Bento Grid --- */
+.bento-grid { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px; 
+    margin-top: 40px; 
+    align-items: stretch;
+}
+.bento-card { 
+    padding: 40px; 
+    border-radius: 24px; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05); 
+    display: flex; 
+    flex-direction: column; 
+}
+.white-card { background-color: #fff; color: var(--brand-primary); }
+.dark-card { background-color: var(--brand-primary); color: #fff; }
+
+.icon-container { 
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center; 
+    width: 50px; 
+    height: 50px; 
+    border-radius: 12px; 
+    margin-bottom: 25px; 
+    font-size: 1.5rem; 
+}
+.blue-icon { background-color: #f0f9ff; color: var(--brand-accent); }
+.lightning-icon { background-color: rgba(255, 255, 255, 0.1); color: #fff; }
+
+.bento-card hr { border: 0; height: 1px; background-color: #e2e8f0; margin: 24px 0; }
+.dark-card hr { background-color: rgba(255, 255, 255, 0.1); }
+
+.bento-card h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 16px; }
+.bento-card h4 { font-size: 1.1rem; font-weight: 800; margin-bottom: 12px; }
+
+.white-card p, .white-card ul { color: #475569; font-size: 0.95rem; }
+.dark-card p { color: #94a3b8; font-size: 0.95rem; }
+
+/* --- Split Blocks --- */
+.split-block { display: flex; gap: 80px; align-items: center; padding: 100px 0; }
+.split-block.rev { flex-direction: row-reverse; }
+.content-text { flex: 1; }
+.content-visual { flex: 1; border-radius: 32px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+.content-visual img { width: 100%; display: block; }
+
+.list-item { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; font-weight: 600; }
+.list-item i { color: var(--brand-success); }
+
+/* --- Map & Footer --- */
+.map-frame { width: 100%; border-radius: 32px; border: 1px solid #e2e8f0; height: 450px; margin-top: 40px; }
+footer { background: var(--brand-primary); color: white; padding: 100px 0 40px; }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 60px; padding-bottom: 40px; }
+.footer-link { color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+
+/* Mobile Slider Logic */
+@media (max-width: 1024px) {
+    .menu-toggle { display: block; }
+    .nav-links { position: fixed; top: 0; right: -100%; width: 80%; height: 100vh; background: #fff; flex-direction: column; justify-content: center; transition: 0.4s; z-index: 1050; box-shadow: -10px 0 30px rgba(0,0,0,0.1); }
+    .nav-links.active { right: 0; }
+    .hero { flex-direction: column; }
+    .hero-image { width: 100%; min-height: 400px; }
+    .hero-content { padding: 60px 24px; text-align: center; }
+    .split-block, .bento-grid, .footer-grid { grid-template-columns: 1fr; flex-direction: column !important; text-align: center; }
+    .list-item { justify-content: center; }
+}
+
+</style>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vein and Knee Pain Vascular Group | Dr. Amir Salem, MD | Vascular Doctor NYC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="top-nav">
+        <div class="container nav-flex">
+            <a href="#home" class="brand-identity">VEIN & KNEE PAIN</a>
+            <button class="menu-toggle" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
+            <div class="nav-links" id="navLinks">
+                <a href="#dr-salem" onclick="closeMenu()">Dr. Salem</a>
+                <a href="#about" onclick="closeMenu()">What We Treat</a>
+                <a href="#specialties" onclick="closeMenu()">Specialties</a>
+                <a href="#locations" onclick="closeMenu()">NYC Locations</a>
+                <a href="tel:+12125168770" class="phone-cta"><i class="fa-solid fa-phone"></i> +1 212-516-8770</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero" id="home">
+        <div class="hero-content">
+            <h1>Expert Vascular Doctors & Vein Clinic in NYC</h1>
+            <p style="margin-bottom: 24px;">Vein and Knee Pain Vascular Group is a trusted leader in advanced vascular and vein care, helping patients find lasting relief from vein-related leg and knee pain. As a premier <a href="https://veinandknee.com/" class="text-link">veins treatment center</a> NYC, we specialize in diagnosing and treating complex vein and circulation conditions using minimally invasive, image-guided techniques—without surgery, hospital stays, or downtime.</p>
+            
+            <h2 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 12px; color: var(--brand-primary);">Personalized Vascular Care in New York</h2>
+            <p style="margin-bottom: 16px;">At Vein and Knee Pain Vascular Group, we understand that vein and circulation problems can affect more than just physical health—they can also impact mobility, comfort, and daily quality of life. Our clinic provides patient-centered vascular care designed to identify the root cause of symptoms such as swelling, heaviness, and persistent leg pain.</p>
+            <p>Using modern diagnostic imaging and advanced treatment techniques, our team creates personalized care plans tailored to each patient’s medical condition and lifestyle. This approach ensures that every patient receives targeted treatment focused on long-term relief and improved vascular health.</p>
+        </div>
+        <div class="hero-image"></div>
+    </header>
+
+    <section id="dr-salem" class="section-padding" style="background: var(--bg-soft);">
+        <div class="container">
+            <div class="split-block">
+                <div class="content-text">
+                    <h2 style="font-size: 2.8rem; font-weight: 800; margin-bottom: 20px;">About Dr. Amir Salem, MD</h2>
+                    <p style="margin-bottom: 20px;">At the heart of Vein and Knee Pain Vascular Group is <a href="https://veinandknee.com/dr-amir-salem-md/" class="text-link">Dr. Amir Salem, MD</a>, a highly respected vascular specialist known for treating complex vein and artery disorders with precision and compassion.</p>
+                    <p style="margin-bottom: 20px;">Dr. Salem’s clinical expertise spans:</p>
+                    <ul style="list-style: none; margin-bottom: 20px;">
+                        <li class="list-item"><i class="fa-solid fa-check"></i> Vascular medicine</li>
+                        <li class="list-item"><i class="fa-solid fa-check"></i> Diagnostic radiology</li>
+                        <li class="list-item"><i class="fa-solid fa-check"></i> Image-guided vascular intervention</li>
+                    </ul>
+                    <p style="margin-bottom: 20px;">This unique background allows him to accurately diagnose and treat vein and arterial conditions without traditional surgery. Many patients who were previously misdiagnosed or left untreated elsewhere seek Dr. Salem for second opinions and clear, effective solutions.</p>
+                    <p>Dr. Salem speaks English, Arabic, and Spanish, enabling him to communicate clearly with patients from diverse communities throughout New York and deliver truly personalized care.</p>
+                    
+                    <h3 style="font-size: 1.5rem; font-weight: 800; margin-top: 32px; margin-bottom: 12px;">Experience and Patient-Focused Care</h3>
+                    <p style="margin-bottom: 16px;">Dr. Salem’s multidisciplinary medical training allows him to combine advanced diagnostic techniques with modern minimally invasive procedures. His goal is to provide accurate diagnoses and effective treatments while minimizing discomfort and recovery time for patients.</p>
+                    <p>Through a careful evaluation of circulation problems, Dr. Salem helps patients understand the cause of their symptoms and guides them through treatment options that restore healthy blood flow and improve mobility.</p>
+                </div>
+                <div class="content-visual">
+                    <img src="dr image.webp" alt="Dr. Amir Salem, MD">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" id="about">
+        <div class="container">
+            <div style="max-width: 800px; margin-bottom: 40px;">
+                <h2 style="font-size: 2.8rem; font-weight: 800; margin-bottom: 20px;">What Is a Vascular Doctor?</h2>
+                <p style="margin-bottom: 16px;">Many patients ask, what is a vascular doctor? A vascular doctor is a medical specialist who diagnoses and treats conditions affecting the blood vessels, including veins and arteries. Unlike general physicians, vascular doctors focus on circulation-related issues that cause pain, swelling, and mobility limitations.</p>
+                <p>At Vein and Knee Pain Vascular Group, our vascular doctors specialize in minimally invasive treatments that restore healthy blood flow and relieve symptoms without surgery.</p>
+                
+                <h3 style="font-size: 1.5rem; font-weight: 800; margin-top: 24px; margin-bottom: 12px;">Importance of Early Vascular Evaluation</h3>
+                <p>Circulation disorders can gradually worsen if they are not diagnosed early. Seeing a vascular doctor at the first sign of symptoms can help prevent complications and reduce discomfort. Early treatment often leads to faster recovery and better long-term vascular health.</p>
+            </div>
+            
+            <div class="bento-grid">
+                <div class="bento-card white-card">
+                    <div class="icon-container blue-icon"><i class="fa-solid fa-hospital-user"></i></div>
+                    <h3>Why Choose Us?</h3>
+                    <p>Care led by Dr. Amir Salem, MD. Experienced, board-trained vascular doctors. Minimally invasive, non-surgical treatments with no downtime or hospital stays.</p>
+                </div>
+                
+                <div class="bento-card dark-card">
+                    <div class="icon-container lightning-icon"><i class="fa-solid fa-bolt-lightning"></i></div>
+                    <h3>Outpatient Care</h3>
+                    <p>Same-day return to normal activities. All treatments are performed in-office with little to no recovery time. Insurance verification assistance provided.</p>
+                    
+                    <hr>
+                    
+                    <h4>Patient-Centered Treatment Approach</h4>
+                    <p>Our clinic focuses on creating a comfortable and supportive environment where patients feel confident about their treatment decisions. From initial consultation to follow-up care, our team works closely with patients to ensure clear communication, personalized care, and effective treatment outcomes.</p>
+                </div>
+                
+                <div class="bento-card white-card">
+                    <div class="icon-container blue-icon"><i class="fa-solid fa-stethoscope"></i></div>
+                    <h3>Conditions Treated</h3>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 8px;"><i class="fa-solid fa-check" style="color: var(--brand-accent); margin-right: 5px;"></i> Varicose & Spider veins</li>
+                        <li style="margin-bottom: 8px;"><i class="fa-solid fa-check" style="color: var(--brand-accent); margin-right: 5px;"></i> Venous insufficiency</li>
+                        <li style="margin-bottom: 8px;"><i class="fa-solid fa-check" style="color: var(--brand-accent); margin-right: 5px;"></i> Leg swelling & heaviness</li>
+                        <li><i class="fa-solid fa-check" style="color: var(--brand-accent); margin-right: 5px;"></i> Vein-related knee pain</li>
+                    </ul>
+                    
+                    <hr>
+                    
+                    <h4>Comprehensive Vascular Care</h4>
+                    <p>Many vein conditions are linked to underlying circulation problems that may not always be visible. Our clinic evaluates both cosmetic and medical vein concerns to provide comprehensive treatment solutions that address the root cause of symptoms.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="specialties" class="section-padding" style="background: var(--bg-soft);">
+        <div class="container">
+            <div class="split-block rev">
+                <div class="content-text">
+                    <h2 style="font-size: 2.2rem; font-weight: 800; margin-bottom: 20px;">Advanced Treatment at Our Vein Clinic NYC</h2>
+                    <p style="margin-bottom: 24px;">Our clinic is equipped with state-of-the-art imaging allowing our vascular doctor NYC team to precisely identify circulation problems. Minimally invasive treatments offered include:</p>
+                    <div class="list-item"><i class="fa-solid fa-circle-check"></i> Endovenous laser therapy (EVLT)</div>
+                    <div class="list-item"><i class="fa-solid fa-circle-check"></i> Radiofrequency vein ablation</div>
+                    <div class="list-item"><i class="fa-solid fa-circle-check"></i> Ultrasound-guided sclerotherapy</div>
+                    <div class="list-item"><i class="fa-solid fa-circle-check"></i> Non-surgical vein closure procedures</div>
+                    
+                    <h3 style="font-size: 1.5rem; font-weight: 800; margin-top: 32px; margin-bottom: 12px;">Modern Technology for Accurate Diagnosis</h3>
+                    <p>Advanced imaging technology allows our specialists to visualize blood flow in real time, ensuring precise diagnosis and targeted treatment. This technology helps improve treatment outcomes while minimizing discomfort for patients.</p>
+                </div>
+                <div class="content-visual">
+                    <img src="Advanced.webp" alt="Advanced Imaging Tech">
+                </div>
+            </div>
+
+            <div class="split-block">
+                <div class="content-text">
+                    <h2 style="font-size: 2.2rem; font-weight: 800; margin-bottom: 20px;">When Should You See a Vascular Doctor?</h2>
+                    <p style="margin-bottom: 24px;">Early evaluation by skilled vascular doctors can prevent progression and improve long-term comfort. You may benefit if you experience:</p>
+                    <div class="list-item"><i class="fa-solid fa-triangle-exclamation"></i> Bulging or visible veins</div>
+                    <div class="list-item"><i class="fa-solid fa-triangle-exclamation"></i> Persistent leg or knee pain</div>
+                    <div class="list-item"><i class="fa-solid fa-triangle-exclamation"></i> Swelling, cramping, or heaviness</div>
+                    <div class="list-item"><i class="fa-solid fa-triangle-exclamation"></i> Symptoms worsening after standing</div>
+                    
+                    <h3 style="font-size: 1.5rem; font-weight: 800; margin-top: 32px; margin-bottom: 12px;">Recognizing Early Symptoms</h3>
+                    <p>Many patients ignore early symptoms such as mild swelling or leg fatigue. However, these signs may indicate developing vein disease. Consulting a vascular doctor early can help prevent worsening symptoms and support healthier circulation.</p>
+                </div>
+                <div class="content-visual">
+                    <img src="When When Should You See a Vascular Doctor.webp" alt="Vascular Examination">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="locations" class="section-padding">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 40px; max-width: 900px; margin-left: auto; margin-right: auto;">
+                <h2 style="font-size: 2.2rem; font-weight: 800; margin-bottom: 12px;">Serving Patients Throughout New York City</h2>
+                <p style="margin-bottom: 32px; color: #475569;">Expert vascular care is always within reach in Brooklyn, Manhattan, Queens, and Bronx.</p>
+                
+                <h3 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 12px; color: var(--brand-primary);">Convenient Access to Specialized Care</h3>
+                <p style="color: #475569;">Our clinic is centrally located to serve patients from across New York City. Whether you live or work in Manhattan, Brooklyn, Queens, or the Bronx, our team provides convenient access to expert vascular care and advanced vein treatments.</p>
+            </div>
+            <iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2875.077517967243!2d-73.9644441!3d40.7927791!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2f70bb38ac04f%3A0x18f7336b57d4254e!2sVein%20and%20Knee%20Pain%20Vascular%20Group!5e1!3m2!1sen!2sus!4v1772484456246!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3 style="margin-bottom: 20px;">VEIN & KNEE PAIN</h3>
+                    <p style="color: #94a3b8;">Led by Dr. Amir Salem, MD, our mission is to help you move freely and live pain-free. Contact us today for a personalized consultation.</p>
+                </div>
+                <div>
+                    <h4>Contact Support</h4>
+                    <div style="margin-top: 16px;">
+                        <a href="tel:+12125168770" class="footer-link"><i class="fa-solid fa-phone"></i> +1 212-516-8770</a>
+                        <a href="mailto:info@veinandknee.com" class="footer-link"><i class="fa-solid fa-envelope"></i> info@veinandknee.com</a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Visit Our Clinic</h4>
+                    <div class="footer-link" style="margin-top: 16px; margin-bottom: 16px;"><i class="fa-solid fa-location-dot"></i> 372 Central Prk W #1D, NY 10025</div> 
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d541.7800641541695!2d-73.96378534433642!3d40.79289665355545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2f70bb38ac04f%3A0x18f7336b57d4254e!2sVein%20and%20Knee%20Pain%20Vascular%20Group!5e1!3m2!1sen!2sus!4v1772487456971!5m2!1sen!2sus" width="100%" height="150" style="border:0; border-radius: 12px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            <div style="text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding: 40px 0 0 0; color: #64748b; font-size: 0.85rem;">
+                © 2026 Vein and Knee Pain Vascular Group. Expert Vascular Doctor NYC.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-xmark');
+        });
+        function closeMenu() {
+            navLinks.classList.remove('active');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.add('fa-bars');
+            icon.classList.remove('fa-xmark');
+        }
+    </script>
+</body>
+</html>
